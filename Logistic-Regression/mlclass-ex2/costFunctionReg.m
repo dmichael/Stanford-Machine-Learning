@@ -28,13 +28,13 @@ regularization = lambda/(2*m) * (reg_theta' * reg_theta);
 Cost = (y' * log(h)) + ((1-y')*log(1-h));
 J 	 = - (1/m * Cost) + regularization;
 
-% compute the usual partial derivatives, without regularization
+% Partial derivatives
 grad = 1/m * (X' * (h - y));
-% apply regularization, except for theta = 1 so set first term = 0
-reg_grad = (lambda/m)*theta;
-reg_grad(1) = 0;
+% Regularization (except for theta(1))
+grad_reg = (lambda/m)*theta;
+grad_reg(1) = 0;
 
-grad = grad + reg_grad;
+grad = grad + grad_reg;
 
 % =============================================================
 
